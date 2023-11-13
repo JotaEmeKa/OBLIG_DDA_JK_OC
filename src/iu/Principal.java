@@ -1,10 +1,6 @@
 package iu;
 
-import java.awt.Graphics;
-import java.awt.Image;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+
 
 public class Principal extends javax.swing.JFrame {
 
@@ -134,7 +130,7 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mnu_LoginAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnu_LoginAdminActionPerformed
-        loginAdmin();
+        loginCrupier();
     }//GEN-LAST:event_mnu_LoginAdminActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -160,15 +156,15 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu mnu_LoginJugador;
     // End of variables declaration//GEN-END:variables
 
-    private void loginAdmin() {
+    private void loginCrupier() {
 
-        Login login = new LoginCrupier(this, false);
+        Login login = new LoginCrupier(this, false, true);
         login.setVisible(true);
         login.setLocationRelativeTo(this);
     }
 
     private void loginJugador() {
-        Login login = new LoginJugador(this, false);
+        Login login = new LoginJugador(this, false, false);
         login.setVisible(true);
         login.setLocationRelativeTo(this);
     }

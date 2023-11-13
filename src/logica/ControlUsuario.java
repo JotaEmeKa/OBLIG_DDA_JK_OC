@@ -10,11 +10,14 @@ import logica.usuario.Sesion;
 import logica.usuario.Usuario;
 import logica.usuario.UsuarioCrupier;
 import logica.usuario.UsuarioJugador;
+import utilidades.CrupierException;
+import utilidades.EventoJuego;
+import utilidades.Observable;
 //import logica.juego.Juego;
 
-public class ControlUsuario {
+public class ControlUsuario extends Observable{
 
-    private List<UsuarioCrupier> usuariosAdministradores = new ArrayList<>();
+    private List<UsuarioCrupier> usuariosCrupier = new ArrayList<>();
     private List<UsuarioJugador> usuariosJugadores = new ArrayList<>();
     private List<Sesion> logueados = new ArrayList<>();
 
@@ -30,11 +33,11 @@ public class ControlUsuario {
         return true;
     }
 
-    public boolean agregarUsuarioAdmin(UsuarioCrupier usuarioAdministrador) {
-        if (usuariosAdministradores.contains(usuarioAdministrador)) {
+    public boolean agregarUsuarioCrupier(UsuarioCrupier usuarioAdministrador) {
+        if (usuariosCrupier.contains(usuarioAdministrador)) {
             return false;
         }
-        usuariosAdministradores.add(usuarioAdministrador);
+        usuariosCrupier.add(usuarioAdministrador);
         return true;
     }
 
@@ -73,13 +76,20 @@ public class ControlUsuario {
         return null;
     }
 
-    public Sesion loginUsuarioAdmin(String nombre, String password) {
-        Usuario usuario = login(nombre, password, usuariosAdministradores);
+    public Sesion loginUsuarioCrupier(String nombre, String password) throws CrupierException {
+        Usuario usuario = login(nombre, password, usuariosCrupier);
         if (usuario == null) {
             return null;
         }
-        UsuarioCrupier usuarioAdministrador = (UsuarioCrupier) usuario;
-        Sesion usuarioSesion = new Sesion(usuarioAdministrador);
+        
+        for (Sesion s : this.logueados) {
+            if (usuario.equals(s.getUsuario())) {
+                throw new CrupierException("Acceso denegado. El usuario ya tiene una sesión activa.");
+            }
+        }
+        UsuarioCrupier usuarioCrupier = (UsuarioCrupier) usuario;
+        Sesion usuarioSesion = new Sesion(usuarioCrupier);
+        avisar(EventoJuego.INGRESO_CRUPIER);
         return usuarioSesion;
     }
 
@@ -94,5 +104,4 @@ public class ControlUsuario {
 //        UsuarioJugador jugador = (UsuarioJugador) sesion.getUsuario();
 //        jugador.agregarJuegoUsuario(juego);
 //    }
-
 }

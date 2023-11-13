@@ -24,7 +24,7 @@ public class UsuarioJugador extends Usuario {
         super(cedula, password, nombreCompleto);
         this.saldo = saldo;
 //        this.nombreUsuario = nombreCompleto;
-        this.aposto = false;
+//        this.aposto = false;
     }
 
 //    public UsuarioJugador(String nombreUsuario, String password, double saldo, String nombreCompleto, List<Juego> juegos, double apuesta) {

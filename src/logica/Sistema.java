@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 //import logica.mesa.ControlJuego;
 import logica.mesa.Mesa;
 import logica.mesa.Ronda;
+import utilidades.CrupierException;
 //import logica.mesa.JuegoException;
 //import logica.mesa.Mano;
 //import logica.mesa.Mazo;
@@ -64,8 +65,8 @@ public class Sistema extends Observable {
         return controlUsuario.loginUsuarioJugador(nombre, password);
     }
 
-    public Sesion loginUsuarioAdmin(String nombre, String password) {
-        return controlUsuario.loginUsuarioAdmin(nombre, password);
+    public Sesion loginUsuarioCrupier(String nombre, String password) throws CrupierException {
+        return controlUsuario.loginUsuarioCrupier(nombre, password);
     }
 
     public boolean agregarUsuario(UsuarioJugador usuario) {
@@ -73,7 +74,7 @@ public class Sistema extends Observable {
     }
 
     public boolean agregarUsuario(UsuarioCrupier usuario) {
-        return controlUsuario.agregarUsuarioAdmin(usuario);
+        return controlUsuario.agregarUsuarioCrupier(usuario);
     }
 
     public List<Sesion> getLogueados() {
@@ -84,8 +85,8 @@ public class Sistema extends Observable {
         return controlUsuario.loginUsuarioJugador(nombre, password);
     }
 
-    public Sesion loginAdmin(String nombre, String password) {
-        return controlUsuario.loginUsuarioAdmin(nombre, password);
+    public Sesion loginAdmin(String nombre, String password) throws CrupierException {
+        return controlUsuario.loginUsuarioCrupier(nombre, password);
     }
 
     public void logout(Sesion sesion) {

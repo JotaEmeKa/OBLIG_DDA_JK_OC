@@ -9,13 +9,13 @@ import logica.usuario.UsuarioCrupier;
 
 public class LoginCrupier extends Login{
 
-    public LoginCrupier(Frame parent, boolean modal) {
-        super(parent, modal);
+    public LoginCrupier(Frame parent, boolean modal, boolean isCrupier) {
+        super(parent, modal, isCrupier);
     }
 
     @Override
     public Sesion hacerLogin(String nombre, String password) {
-          return Sistema.getInstancia().loginUsuarioAdmin(nombre, password);
+          return Sistema.getInstancia().loginUsuarioCrupier(nombre, password);
     }
 
 //    @Override

@@ -1,21 +1,22 @@
-
 package iu;
-
 
 import controlador.VistaLogin;
 import javax.swing.JOptionPane;
 import logica.usuario.Sesion;
 
-
-public abstract class Login extends javax.swing.JDialog implements VistaLogin{
+public abstract class Login extends javax.swing.JDialog implements VistaLogin {
 
     /**
      * Creates new form Login
      */
-    public Login(java.awt.Frame parent, boolean modal) {
+    public Login(java.awt.Frame parent, boolean modal, boolean isCrupier) {
         super(parent, modal);
         initComponents();
-        setTitle("Login");
+        if (isCrupier) {
+            setTitle("Login Crupier");
+        } else {
+            setTitle("Login Jugador");
+        }
     }
 
     /**
@@ -137,7 +138,7 @@ public abstract class Login extends javax.swing.JDialog implements VistaLogin{
     // End of variables declaration//GEN-END:variables
 
     private void login() {
-         String nombre = txt_nombreUsuario.getText();
+        String nombre = txt_nombreUsuario.getText();
         String password = String.valueOf(txt_password.getPassword());
         Sesion sesion = this.hacerLogin(nombre, password);
         if (sesion != null) {
@@ -147,27 +148,26 @@ public abstract class Login extends javax.swing.JDialog implements VistaLogin{
             JOptionPane.showMessageDialog(null, "Usuario y/o password incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
-    
+
     public abstract Sesion hacerLogin(String nombre, String password);
-    
+
     public abstract void mostrarProximaInterfaz(Sesion sesion);
-    
+
     @Override
     public void mostrarTitulo(String titulo) {
-      this.setTitle(titulo);
+        this.setTitle(titulo);
     }
 
     @Override
     public void mostrarError(String mensaje) {
-       JOptionPane.showMessageDialog(null, mensaje,"Error", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
     }
 
     @Override
     public void cerrar() {
         dispose();
     }
-    
+
     @Override
     public void limpiarDatos() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

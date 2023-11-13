@@ -1,5 +1,6 @@
 package logica.mesa;
 
+import utilidades.EventoJuego;
 import java.util.ArrayList;
 import java.util.List;
 import logica.Sistema;

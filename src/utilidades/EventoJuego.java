@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package logica.mesa;
+package utilidades;
 
 /**
  *
@@ -11,8 +11,9 @@ package logica.mesa;
  */
 public enum EventoJuego {
     INGRESO_JUGADOR,
+    INGRESO_CRUPIER,
     EMPEZO_JUEGO,
-    NUEVA_MANO,
+    NUEVA_RONDA,
     NUEVA_APUESTA,
     ABANDONO_JUEGO,
     GANADOR

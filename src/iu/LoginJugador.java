@@ -11,8 +11,8 @@ import logica.usuario.UsuarioCrupier;
 
 public class LoginJugador extends Login {
 
-    public LoginJugador(Frame parent, boolean modal) {
-        super(parent, modal);
+    public LoginJugador(Frame parent, boolean modal, boolean isCrupier) {
+        super(parent, modal, isCrupier);
     }
 
     @Override

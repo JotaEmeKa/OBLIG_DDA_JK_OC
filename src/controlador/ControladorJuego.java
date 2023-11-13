@@ -6,7 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import logica.Sistema;
-import logica.mesa.EventoJuego;
+import utilidades.EventoJuego;
 import logica.mesa.Mesa;
 import logica.mesa.Ronda;
 import logica.mesa.TipoEfecto;
@@ -88,7 +88,7 @@ public class ControladorJuego implements Observador {
             vista.mostrarJugadoresList(jugadores);
             chequearCartas();
         }
-        if (event.equals(EventoJuego.NUEVA_MANO)) {
+        if (event.equals(EventoJuego.NUEVA_RONDA)) {
             //vista.repartirCartas();
             vista.mostrarMontos(jugadores);
         }
