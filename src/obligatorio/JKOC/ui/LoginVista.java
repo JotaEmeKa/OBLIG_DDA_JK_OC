@@ -4,7 +4,7 @@
  */
 package obligatorio.JKOC.ui;
 
-import obligatorio.JKOC.dominio.UsuarioGenerico;
+import obligatorio.JKOC.dominio.Usuario;
 
 /**
  *
@@ -12,7 +12,7 @@ import obligatorio.JKOC.dominio.UsuarioGenerico;
  */
 public interface LoginVista extends VistaBase {
 
-    void ejecutarCasoDeUsoInicial(UsuarioGenerico usuario);
+    void ejecutarCasoDeUsoInicial(Usuario usuario);
 
     void cerrarVentana();
 }

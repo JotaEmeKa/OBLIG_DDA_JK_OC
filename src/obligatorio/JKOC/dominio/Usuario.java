@@ -1,31 +1,35 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package obligatorio.JKOC.dominio;
 
-/**
- *
- * @author ddauser
- */
-public class Usuario extends UsuarioGenerico {
-    
-    private Agenda agenda;
-    
-    public Agenda getAgenda() {
-        return agenda;
+public abstract class Usuario {
+
+    private String idUsuario;
+
+    private String nombre;
+
+    private String password;
+
+    public String getIdUsuario() {
+        return idUsuario;
     }
-    
-    public void setAgenda(Agenda agenda) {
-        if (agenda != null) {
-            this.agenda = agenda;
-            agenda.setUsuario(this);
-        }
-        
+
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
     }
-    
-    public int getCantidadContactos() {
-        return agenda.getCantidadContactos();
+
+    public String getNombre() {
+        return nombre;
     }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean esPassordValida(String password) {
+        return this.password.equals(password);
+    }
+
 }

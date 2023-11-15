@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package obligatorio.JKOC.controllers;
 
 import java.util.List;
@@ -12,10 +8,6 @@ import obligatorio.JKOC.dominio.Grupo;
 import obligatorio.JKOC.exceptions.AgendaException;
 import obligatorio.JKOC.ui.NuevoGrupoDeContactosVista;
 
-/**
- *
- * @author fadavanc
- */
 public class NuevoGrupoDeContactosVistaControlador extends VistaBaseControlador<NuevoGrupoDeContactosVista, Agenda> {
 
     public NuevoGrupoDeContactosVistaControlador(Agenda modelo, NuevoGrupoDeContactosVista vista) {

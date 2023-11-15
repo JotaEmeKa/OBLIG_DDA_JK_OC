@@ -1,15 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package obligatorio.JKOC.common;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author fadavanc
- */
 public abstract class Observable {
     
     private final ArrayList<Observador> observadores = new ArrayList<>();
@@ -23,7 +15,7 @@ public abstract class Observable {
     }
     
     protected void avisar(Object evento) {
-        //observadores.forEach(e -> e.actualizar(this, evento));
+        
         for(int i=0;i<observadores.size();i++){
             observadores.get(i).actualizar(this, evento);
         }

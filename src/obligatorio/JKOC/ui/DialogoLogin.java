@@ -1,9 +1,9 @@
 package obligatorio.JKOC.ui;
 
 import javax.swing.JOptionPane;
+import obligatorio.JKOC.dominio.Jugador;
 import obligatorio.JKOC.dominio.Usuario;
-import obligatorio.JKOC.dominio.UsuarioGenerico;
-import obligatorio.JKOC.logica.FachadaServicios;
+import obligatorio.JKOC.logica.Sistema;
 import obligatorio.JKOC.controllers.LoginVistaControlador;
 
 /**

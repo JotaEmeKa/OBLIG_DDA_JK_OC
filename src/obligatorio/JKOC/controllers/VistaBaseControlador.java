@@ -1,19 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package obligatorio.JKOC.controllers;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import obligatorio.JKOC.ui.VistaBase;
 
-/**
- *
- * @author fadavanc
- * @param <Vista>
- * @param <Modelo>
- */
 public abstract class VistaBaseControlador<Vista extends VistaBase, Modelo> {
 
     protected Vista vista;

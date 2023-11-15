@@ -7,19 +7,11 @@ import obligatorio.JKOC.exceptions.AgendaException;
 import obligatorio.JKOC.exceptions.ContactoInvalidoException;
 import obligatorio.JKOC.exceptions.TelefonoInvalidoException;
 
-/**
- *
- * @author ddauser
- */
 public class Agenda extends Observable {
 
-    private Usuario usuario;
+    private Jugador usuario;
     private final ArrayList<Grupo> grupos = new ArrayList<>();
-    /**
-     * *
-     * Cambie ArrayList por HashSet (y sobreescribi el equals en Contacto) para
-     * validar que no se agreguen contactos repetidos.
-     */
+    
     private final HashSet<Contacto> contactos;
 
     public Agenda() {
@@ -67,11 +59,11 @@ public class Agenda extends Observable {
         return resultados;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(Jugador usuario) {
         this.usuario = usuario;
     }
 
-    public Usuario getUsuario() {
+    public Jugador getUsuario() {
         return usuario;
     }
 

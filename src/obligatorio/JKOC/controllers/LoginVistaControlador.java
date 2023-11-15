@@ -1,26 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package obligatorio.JKOC.controllers;
 
-import obligatorio.JKOC.dominio.Administrador;
-import obligatorio.JKOC.dominio.UsuarioGenerico;
-import obligatorio.JKOC.logica.FachadaServicios;
+import obligatorio.JKOC.dominio.Crupier;
+import obligatorio.JKOC.dominio.Usuario;
+import obligatorio.JKOC.logica.Sistema;
 import obligatorio.JKOC.ui.LoginVista;
 
-/**
- *
- * @author fadavanc
- */
-public abstract class LoginVistaControlador extends VistaBaseControlador<LoginVista, FachadaServicios> {
+public abstract class LoginVistaControlador extends VistaBaseControlador<LoginVista, Sistema> {
 
     public LoginVistaControlador(LoginVista vista) {
-        super(vista, FachadaServicios.getInstance());
+        super(vista, Sistema.getInstance());
     }
 
     public void login(String nombreUsuario, String password) {
-        UsuarioGenerico usuario = loginInterno(nombreUsuario, password);
+        Usuario usuario = loginInterno(nombreUsuario, password);
         if (usuario == null) {
             vista.mostrarMensajeDeError("Nombre y/o la contraseña no son correctos");
         } else {
@@ -29,17 +21,17 @@ public abstract class LoginVistaControlador extends VistaBaseControlador<LoginVi
         }
     }
 
-    protected abstract UsuarioGenerico loginInterno(String nombreUsuario, String password);
-//Solucion alternativa para tener un único controldor concreto. Obliga al dialogo concreto diferenciar entre loginUsuario/admin
-//    public void loginUsuario(String nombreUsuario, String password) {
-//        loginGenerico(FachadaServicios.getInstance().loginUsuario(nombreUsuario, password));
+    protected abstract Usuario loginInterno(String nombreUsuario, String password);
+//Solucion alternativa para tener un único controldor concreto. Obliga al dialogo concreto diferenciar entre loginJugador/admin
+//    public void loginJugador(String nombreUsuario, String password) {
+//        loginGenerico(Sistema.getInstance().loginJugador(nombreUsuario, password));
 //    }
 //
-//    public void loginAdministrador(String nombreUsuario, String password) {
-//        loginGenerico(FachadaServicios.getInstance().loginAdministrador(nombreUsuario, password));
+//    public void loginCrupier(String nombreUsuario, String password) {
+//        loginGenerico(Sistema.getInstance().loginCrupier(nombreUsuario, password));
 //    }
 //
-//    private void loginGenerico(UsuarioGenerico usuario) {
+//    private void loginGenerico(Usuario usuario) {
 //        if (usuario == null) {
 //            vista.mostrarMensajeDeError("Nombre y/o la contraseña no son correctos");
 //        } else {

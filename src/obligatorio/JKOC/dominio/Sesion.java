@@ -1,28 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package obligatorio.JKOC.dominio;
 
 import java.util.Date;
 
-/**
- *
- * @author ddauser
- */
 public class Sesion {
     
-    private Usuario usuario;
+    private Jugador usuario;
     
     private Date fechaAcceso;
 
-    public Sesion(Usuario usuario, Date fechaAcceso) {
+    public Sesion(Jugador usuario, Date fechaAcceso) {
         this.usuario = usuario;
         this.fechaAcceso = fechaAcceso;
     }
 
-    public Usuario getUsuario() {
+    public Jugador getUsuario() {
         return usuario;
     }
 

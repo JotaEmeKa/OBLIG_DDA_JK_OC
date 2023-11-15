@@ -9,6 +9,14 @@ package obligatorio.JKOC.dominio;
  *
  * @author ddauser
  */
-public class Administrador extends UsuarioGenerico {
-    
+public class ApuestaDocena extends TipoApuesta {
+
+    public ApuestaDocena(String nombre) {
+        super(nombre);
+    }
+
+    @Override
+    public boolean esValido(String numero) {
+        return numero.trim().length() == 8 && esNumerico(numero); 
+    }
 }

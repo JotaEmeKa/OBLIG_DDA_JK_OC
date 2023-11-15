@@ -1,15 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
- */
 package obligatorio.JKOC.ui;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author fadavanc
- */
 public abstract class DialogoBase extends javax.swing.JDialog implements VistaBase {
 
     /**

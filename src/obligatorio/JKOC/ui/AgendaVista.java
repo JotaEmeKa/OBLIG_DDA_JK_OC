@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
 package obligatorio.JKOC.ui;
 
 import java.util.ArrayList;
@@ -10,10 +6,6 @@ import obligatorio.JKOC.dominio.Contacto;
 import obligatorio.JKOC.dominio.TipoContacto;
 import obligatorio.JKOC.dominio.TipoTelefono;
 
-/**
- *
- * @author fadavanc
- */
 public interface AgendaVista extends VistaBase {
 
     void mostrarTiposDeContacto(ArrayList<TipoContacto> tipos);

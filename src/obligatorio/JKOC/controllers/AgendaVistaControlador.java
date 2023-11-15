@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package obligatorio.JKOC.controllers;
 
 import java.util.Date;
@@ -13,16 +9,12 @@ import obligatorio.JKOC.dominio.Agenda;
 import obligatorio.JKOC.dominio.Contacto;
 import obligatorio.JKOC.dominio.Eventos;
 import obligatorio.JKOC.dominio.Sesion;
-import obligatorio.JKOC.dominio.Usuario;
+import obligatorio.JKOC.dominio.Jugador;
 import obligatorio.JKOC.exceptions.ContactoInvalidoException;
 import obligatorio.JKOC.exceptions.TelefonoInvalidoException;
-import obligatorio.JKOC.logica.FachadaServicios;
+import obligatorio.JKOC.logica.Sistema;
 import obligatorio.JKOC.ui.AgendaVista;
 
-/**
- *
- * @author fadavanc
- */
 public class AgendaVistaControlador extends VistaBaseControlador<AgendaVista, Agenda> implements Observador {
 
     private Sesion sesion;
@@ -34,9 +26,9 @@ public class AgendaVistaControlador extends VistaBaseControlador<AgendaVista, Ag
         iniciarSesion(modelo.getUsuario());
     }
 
-    private void iniciarSesion(Usuario usuario) {
+    private void iniciarSesion(Jugador usuario) {
         sesion = new Sesion(usuario, new Date());
-        FachadaServicios.getInstance().iniciar(sesion);
+        Sistema.getInstance().iniciar(sesion);
     }
 
     public void crearContacto(Contacto contacto) {
@@ -60,7 +52,7 @@ public class AgendaVistaControlador extends VistaBaseControlador<AgendaVista, Ag
     }
 
     public void logout() {
-        FachadaServicios.getInstance().cerrar(sesion);
+        Sistema.getInstance().cerrar(sesion);
     }
 
     @Override
@@ -76,9 +68,9 @@ public class AgendaVistaControlador extends VistaBaseControlador<AgendaVista, Ag
 
     @Override
     protected void inicializarVista() {
-        var fachada = FachadaServicios.getInstance();
-        vista.mostrarTiposDeContacto(fachada.getTiposContacto());
-        vista.mostrarTiposDeTelefno(fachada.getTiposTelefono());
+        var fachada = Sistema.getInstance();
+        //vista.mostrarTiposDeContacto(fachada.getTiposContacto());
+        //vista.mostrarTiposDeTelefno(fachada.getTiposTelefono());
         vista.mostrarResumenDeInformacion(modelo);
         vista.mostrarContactos(modelo.getContactos());
     }

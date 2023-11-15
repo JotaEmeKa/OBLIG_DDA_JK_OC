@@ -6,7 +6,7 @@
 package obligatorio.JKOC.ui;
 
 import java.util.ArrayList;
-import obligatorio.JKOC.dominio.Administrador;
+import obligatorio.JKOC.dominio.Crupier;
 import obligatorio.JKOC.dominio.Sesion;
 import obligatorio.JKOC.controllers.UsuariosConectadosVistaControlador;
 
@@ -21,7 +21,7 @@ public class DialogoUsuariosConectados extends DialogoBase implements UsuariosCo
     /**
      * Creates new form DialogoUsuariosConectados
      */
-    public DialogoUsuariosConectados(java.awt.Frame parent, boolean modal, Administrador administrador) {
+    public DialogoUsuariosConectados(java.awt.Frame parent, boolean modal, Crupier administrador) {
         super(parent, modal);
         initComponents();
         this.controlador = new UsuariosConectadosVistaControlador(this, administrador);
@@ -79,7 +79,7 @@ public class DialogoUsuariosConectados extends DialogoBase implements UsuariosCo
     // End of variables declaration//GEN-END:variables
 
     @Override
-    public void mostrarDatosDelAdministrador(Administrador administrador) {
+    public void mostrarDatosDelAdministrador(Crupier administrador) {
         this.setTitle("Bienvenido/a " + administrador.getNombre());
     }
 

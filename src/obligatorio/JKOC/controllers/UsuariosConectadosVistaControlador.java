@@ -7,24 +7,24 @@ package obligatorio.JKOC.controllers;
 import java.util.ArrayList;
 import obligatorio.JKOC.common.Observable;
 import obligatorio.JKOC.common.Observador;
-import obligatorio.JKOC.dominio.Administrador;
+import obligatorio.JKOC.dominio.Crupier;
 import obligatorio.JKOC.dominio.Eventos;
 import obligatorio.JKOC.dominio.Sesion;
-import obligatorio.JKOC.logica.FachadaServicios;
+import obligatorio.JKOC.logica.Sistema;
 import obligatorio.JKOC.ui.UsuariosConectadosVista;
 
 /**
  *
  * @author fadavanc
  */
-public class UsuariosConectadosVistaControlador extends VistaBaseControlador<UsuariosConectadosVista, Administrador> implements Observador {
+public class UsuariosConectadosVistaControlador extends VistaBaseControlador<UsuariosConectadosVista, Crupier> implements Observador {
 
     private ArrayList<Sesion> usuariosConectados;
 
-    public UsuariosConectadosVistaControlador(UsuariosConectadosVista vista, Administrador modelo) {
+    public UsuariosConectadosVistaControlador(UsuariosConectadosVista vista, Crupier modelo) {
         super(vista, modelo);
 
-        FachadaServicios.getInstance().agregar(this);
+        Sistema.getInstance().agregar(this);
 
     }
 
@@ -43,7 +43,7 @@ public class UsuariosConectadosVistaControlador extends VistaBaseControlador<Usu
 
     private void mostrarUsuariosConectados() {
         desSuscribirDeAgendaDeUsuariosConectados();
-        usuariosConectados = FachadaServicios.getInstance().getUsuariosConectados();
+        usuariosConectados = Sistema.getInstance().getUsuariosConectados();
         suscribirAAgendaDeUsuariosConectados();
         vista.mostrarUsuariosConectados(usuariosConectados);
     }
@@ -60,7 +60,7 @@ public class UsuariosConectadosVistaControlador extends VistaBaseControlador<Usu
 
     public void cerrandoVentana() {
         desSuscribirDeAgendaDeUsuariosConectados();
-        FachadaServicios.getInstance().remover(this);
+        Sistema.getInstance().remover(this);
     }
 
     @Override

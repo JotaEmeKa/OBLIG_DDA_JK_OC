@@ -11,7 +11,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="mLogin">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Login usuario"/>
+                <Property name="text" type="java.lang.String" value="Login Jugador"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mLoginActionPerformed"/>
@@ -19,7 +19,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mLoginAdministrador">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Login Administrador"/>
+                <Property name="text" type="java.lang.String" value="Login Crupier"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mLoginAdministradorActionPerformed"/>

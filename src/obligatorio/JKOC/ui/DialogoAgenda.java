@@ -9,7 +9,7 @@ import obligatorio.JKOC.dominio.Contacto;
 import obligatorio.JKOC.dominio.Telefono;
 import obligatorio.JKOC.dominio.TipoContacto;
 import obligatorio.JKOC.dominio.TipoTelefono;
-import obligatorio.JKOC.dominio.Usuario;
+import obligatorio.JKOC.dominio.Jugador;
 import obligatorio.JKOC.exceptions.ContactoInvalidoException;
 import obligatorio.JKOC.exceptions.TelefonoInvalidoException;
 import obligatorio.JKOC.controllers.AgendaVistaControlador;
@@ -30,7 +30,7 @@ public class DialogoAgenda extends DialogoBase implements AgendaVista {
      */
     private String criterio;
 
-    public DialogoAgenda(java.awt.Frame parent, boolean modal, Usuario usuario) {
+    public DialogoAgenda(java.awt.Frame parent, boolean modal, Jugador usuario) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(parent);

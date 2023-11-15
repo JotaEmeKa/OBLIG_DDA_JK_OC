@@ -5,7 +5,7 @@
 package obligatorio.JKOC.ui;
 
 import java.util.ArrayList;
-import obligatorio.JKOC.dominio.Administrador;
+import obligatorio.JKOC.dominio.Crupier;
 import obligatorio.JKOC.dominio.Sesion;
 
 /**
@@ -14,7 +14,7 @@ import obligatorio.JKOC.dominio.Sesion;
  */
 public interface UsuariosConectadosVista extends VistaBase {
 
-    void mostrarDatosDelAdministrador(Administrador administrador);
+    void mostrarDatosDelAdministrador(Crupier administrador);
 
     void mostrarUsuariosConectados(ArrayList<Sesion> usuariosConectados);
 }

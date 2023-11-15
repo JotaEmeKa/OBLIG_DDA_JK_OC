@@ -1,16 +1,9 @@
 package obligatorio.JKOC.ui;
 
-import obligatorio.JKOC.logica.FachadaServicios;
+import obligatorio.JKOC.logica.Sistema;
 
-/**
- *
- * @author ddauser
- */
 public class VentanaInicio extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VentanaInicio
-     */
     public VentanaInicio() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -30,7 +23,7 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         jMenu1.setText("Usuario");
 
-        mLogin.setText("Login usuario");
+        mLogin.setText("Login Jugador");
         mLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mLoginActionPerformed(evt);
@@ -38,7 +31,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         });
         jMenu1.add(mLogin);
 
-        mLoginAdministrador.setText("Login Administrador");
+        mLoginAdministrador.setText("Login Crupier");
         mLoginAdministrador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mLoginAdministradorActionPerformed(evt);
@@ -65,11 +58,11 @@ public class VentanaInicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mLoginActionPerformed
-        this.loginUsuario();
+        this.loginJugador();
     }//GEN-LAST:event_mLoginActionPerformed
 
     private void mLoginAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mLoginAdministradorActionPerformed
-        this.loginAdministrador();
+        this.loginCrupier();
     }//GEN-LAST:event_mLoginAdministradorActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -79,11 +72,11 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem mLoginAdministrador;
     // End of variables declaration//GEN-END:variables
 
-    private void loginUsuario() {
-        new DialogoLoginUsuario(this, false).setVisible(true);
+    private void loginJugador() {
+        new DialogoLoginJugador(this, false).setVisible(true);
     }
 
-    private void loginAdministrador() {
-        new DialogoLoginAdministrador(this, false).setVisible(true);
+    private void loginCrupier() {
+        new DialogoLoginCrupier(this, false).setVisible(true);
     }
 }
