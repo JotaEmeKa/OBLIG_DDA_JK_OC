@@ -91,7 +91,7 @@ public class Principal extends javax.swing.JFrame {
         mnu_LoginJugador.setText("Login");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_J, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem1.setText("Login jugador");
+        jMenuItem1.setText("Login Jugador");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -100,7 +100,7 @@ public class Principal extends javax.swing.JFrame {
         mnu_LoginJugador.add(jMenuItem1);
 
         mnu_LoginAdmin.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        mnu_LoginAdmin.setText("Login administrador");
+        mnu_LoginAdmin.setText("Login Crupier");
         mnu_LoginAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnu_LoginAdminActionPerformed(evt);

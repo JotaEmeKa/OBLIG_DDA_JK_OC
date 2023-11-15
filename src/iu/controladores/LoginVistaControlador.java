@@ -5,6 +5,7 @@ import iu.VistaLogin;
 import iu.LoginVista;
 import javax.security.auth.login.LoginException;
 import logica.Sistema;
+import logica.usuario.Sesion;
 import logica.usuario.Usuario;
 
 public abstract class LoginVistaControlador extends VistaBaseControlador<VistaLogin, Sistema> {
@@ -14,26 +15,17 @@ public abstract class LoginVistaControlador extends VistaBaseControlador<VistaLo
     }
 
     public void login(String nombreUsuario, String password) {
-//        Usuario usuario = null;
-//        try {
-//            usuario = loginInterno(nombreUsuario, password);
-//            vista.ejecutarCasoDeUsoInicial(usuario);
-//            vista.cerrarVentana();
-//
-//        } catch (LoginException e) {
-//            vista.mostrarMensajeDeError(e.getMessage());
-//            throw System.out.print("Error");
-//        }
-        Usuario usuario = loginInterno(nombreUsuario, password);
+    Sesion sesion = loginInterno(nombreUsuario, password);
+    Usuario usuario = sesion.getUsuario();
         if (usuario == null) {
             vista.mostrarMensajeDeError("Nombre y/o la contraseña no son correctos");
         } else {
-            vista.ejecutarCasoDeUsoInicial(usuario);
+            vista.ejecutarCasoDeUsoInicial(sesion);
             vista.cerrarVentana();
         }
     }
 
-    protected abstract Usuario loginInterno(String nombreUsuario, String password);
+    protected abstract Sesion loginInterno(String nombreUsuario, String password);
 //Solucion alternativa para tener un único controldor concreto. Obliga al dialogo concreto diferenciar entre loginUsuario/admin
 //    public void loginUsuario(String nombreUsuario, String password) {
 //        loginGenerico(FachadaServicios.getInstance().loginUsuario(nombreUsuario, password));

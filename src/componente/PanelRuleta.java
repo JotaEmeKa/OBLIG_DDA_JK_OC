@@ -1,4 +1,4 @@
-package iu;
+package componente;
 
 import java.awt.Color;
 import java.awt.Cursor;

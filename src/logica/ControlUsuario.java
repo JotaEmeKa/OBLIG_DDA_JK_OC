@@ -15,7 +15,7 @@ import utilidades.EventoJuego;
 import utilidades.Observable;
 //import logica.juego.Juego;
 
-public class ControlUsuario extends Observable {
+class ControlUsuario extends Observable {
 
     private List<UsuarioCrupier> usuariosCrupier = new ArrayList<>();
     private List<UsuarioJugador> usuariosJugadores = new ArrayList<>();

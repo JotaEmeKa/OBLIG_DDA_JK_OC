@@ -19,11 +19,13 @@ public class LoginAdministradorVistaControlador extends LoginVistaControlador {
     @Override
     protected Sesion loginInterno(String nombreUsuario, String password) {
         try {
-            return Sistema.getInstancia().loginUsuarioCrupier(nombreUsuario, password);
+            return Sistema.getInstancia().loginAdmin(nombreUsuario, password);
         } catch (CrupierException ex) {
             Logger.getLogger(LoginAdministradorVistaControlador.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;//Esto hay que pasarlo a la vista
+        return null;
     }
+
+   
 
 }

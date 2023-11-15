@@ -1,25 +1,38 @@
 package iu.controladores;
 
 import iu.VistaJugarMesa;
+import iu.VistaLobby;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import logica.Sistema;
 import logica.mesa.Mesa;
+import logica.mesa.TipoApuesta;
 import logica.usuario.Sesion;
 import utilidades.EventoJuego;
 import utilidades.Observable;
 import utilidades.Observador;
+import utilidades.RuletaException;
 
-public class JuegoVistaControlador extends VistaBaseControlador<VistaJugarMesa, Mesa> implements Observador {
+public class LobbyVistaControlador extends VistaBaseControlador<VistaLobby, Mesa> implements Observador {
 
     private Sesion sesion;
+    private ArrayList<TipoApuesta> tipoApuestas;
 
-    public JuegoVistaControlador(VistaJugarMesa vista, Mesa modelo) {
-        super(vista, modelo);
+    public LobbyVistaControlador(VistaLobby vista) {
+        super(vista, new Mesa());
         modelo.agregar(this);
-
+        //mostrarTiposDeApuesta();
+        
         //iniciarSesion(modelo.getUsuario());
+    }
+
+    public void mostrarTiposDeApuesta() {
+        tipoApuestas = Sistema.getInstancia().getTipoApuesta();
+        vista.mostrarTiposApuesta(tipoApuestas);
+
     }
 
 //    private void iniciarSesion(Usuario usuario) {
@@ -57,11 +70,11 @@ public class JuegoVistaControlador extends VistaBaseControlador<VistaJugarMesa, 
 //    }
     @Override
     protected void inicializarVista() {
-        var fachada = Sistema.getInstancia();
+        Sistema logica = Sistema.getInstancia();
 //        vista.mostrarTiposDeContacto(fachada.getTiposContacto());
 //        vista.mostrarTiposDeTelefno(fachada.getTiposTelefono());
 //        vista.mostrarResumenDeInformacion(modelo);
-//        vista.mostrarContactos(modelo.getContactos());
+        vista.mostrarTiposApuesta(logica.getTipoApuesta());
     }
 
     @Override
@@ -71,4 +84,14 @@ public class JuegoVistaControlador extends VistaBaseControlador<VistaJugarMesa, 
             //buscarContacto("");
         }
     }
+    
+        public void crearMesa(List<TipoApuesta> ta) {
+        Mesa mesa = new Mesa();
+//        mesa.forEach(c -> {
+//                ta.agregar(c);
+//        });
+            Sistema.getInstancia().agregarMesa(mesa);
+            inicializarVista();
+    }
+    
 }

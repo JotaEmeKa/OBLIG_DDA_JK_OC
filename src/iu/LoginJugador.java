@@ -1,5 +1,6 @@
 package iu;
 
+import iu.controladores.LoginVistaControlador;
 import java.awt.Frame;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,7 +16,6 @@ public class LoginJugador extends LoginVista {
         super(parent, modal, isCrupier);
     }
 
-    @Override
     public Sesion hacerLogin(String nombre, String password) {
         try {
             return Sistema.getInstancia().loginUsuarioJugador(nombre, password);
@@ -27,12 +27,12 @@ public class LoginJugador extends LoginVista {
 
     public void mostrarProximaInterfaz(Sesion sesion) {
         System.out.println("Entraste");
-        PanelRuleta jugar = new PanelRuleta(sesion);
-        //jugar.setVisible(true);
+        VentanaMesa vmesa = new VentanaMesa(sesion);
+        vmesa.setVisible(true);
     }
 
     @Override
-    public void ejecutarCasoDeUsoInicial(Usuario usuario) {
+    public void ejecutarCasoDeUsoInicial(Sesion usuario) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -43,6 +43,11 @@ public class LoginJugador extends LoginVista {
 
     @Override
     public void mostrarMensajeDeError(String mensaje) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    protected LoginVistaControlador crearControlador() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

@@ -22,14 +22,15 @@ public class LoginUsuarioVistaControlador extends LoginVistaControlador {
         super(vista);
     }
 
-    @Override
+       @Override
     protected Sesion loginInterno(String nombreUsuario, String password) {
         try {
-            return Sistema.getInstancia().loginUsuarioJugador(nombreUsuario, password);
+            return Sistema.getInstancia().loginJugador(nombreUsuario, password);
         } catch (CrupierException ex) {
-            Logger.getLogger(LoginUsuarioVistaControlador.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LoginAdministradorVistaControlador.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;//pasar la exception a la vista
+        return null;
     }
+
 
 }

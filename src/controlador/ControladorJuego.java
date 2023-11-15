@@ -131,7 +131,7 @@ public class ControladorJuego implements Observador {
 
             //Ronda.setApuesta(montoBase * limiteJugadores);
             juegoNuevo.getRondas().add(ronda);
-            modelo.agregarJuego(juegoNuevo);
+            modelo.agregarMesa(juegoNuevo);
 //            try {
                 if (limiteJugadores(juegoNuevo)) {
 //                    modelo.agregarJugadorMesa(sesion, juegoNuevo);

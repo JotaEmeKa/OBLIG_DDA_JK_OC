@@ -4,18 +4,27 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.swing.ImageIcon;
+import logica.mesa.Apuesta;
 import logica.mesa.Mesa;
 import logica.mesa.Ronda;
+import logica.mesa.TipoEfecto;
+import logica.mesa.TipoApuesta;
 import logica.usuario.Sesion;
 import logica.usuario.UsuarioJugador;
 import utilidades.RuletaException;
 
-public class ControlMesa {
+class ControlMesa {
 
-    private List<Mesa> mesas = new ArrayList<Mesa>();
+    private ArrayList<Mesa> mesas = new ArrayList<Mesa>();
+    private ArrayList<TipoApuesta> tipoApuestas = new ArrayList<TipoApuesta>();
+    private ArrayList<TipoEfecto> tipoEfectos = new ArrayList<TipoEfecto>();
 
     private int limiteJugadores;
     private double montoBase;
+
+    public ControlMesa() {
+
+    }
 
     public double getMontoBase() {
         return montoBase;
@@ -31,10 +40,6 @@ public class ControlMesa {
 
     public void setLimiteJugadores(int limiteJugadores) {
         this.limiteJugadores = limiteJugadores;
-    }
-
-    public ControlMesa() {
-
     }
 
     public List<Mesa> getJuegos() {
@@ -90,7 +95,6 @@ public class ControlMesa {
 //    public List<UsuarioJugador> obtenerListaJugadores() { //aca esta el error nuevamente a cambiar
 //        return this.juegos.get(0).getJugadores();
 //    }
-
     public List<Mesa> listarMesas() {
 //       UsuarioJugador usu = new UsuarioJugador("Player1", "1234", 10, "Bot jaime");
 //       UsuarioJugador usu2 = new UsuarioJugador("Octopus", "321",120 ,"Octavio Carnales");
@@ -102,7 +106,7 @@ public class ControlMesa {
         return this.mesas;
     }
 
-    public void agregarJuego(Mesa mesa) {
+    public void agregarMesa(Mesa mesa) {
         this.mesas.add(mesa);
     }
 
@@ -112,6 +116,22 @@ public class ControlMesa {
 
     public void agregarMontoBase(double i) {
         this.setMontoBase(i);
+    }
+
+    public ArrayList<TipoApuesta> getTipoApuesta() {
+        return this.tipoApuestas;
+    }
+
+    public ArrayList<TipoEfecto> getTipoEfecto() {
+        return this.tipoEfectos;
+    }
+
+    public void agregarTipoApuesta(TipoApuesta ta) {
+        this.tipoApuestas.add(ta);
+    }
+
+    public void agregarTipoEfecto(TipoEfecto te) {
+        this.tipoEfectos.add(te);
     }
 
 }

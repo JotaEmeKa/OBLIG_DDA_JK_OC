@@ -35,6 +35,6 @@ public abstract class TipoApuesta {
             return false;
         }
     } 
-   
+    
     public abstract boolean esValido(String numero);
 }

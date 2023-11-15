@@ -1,19 +1,23 @@
 package iu;
 
+import componente.PanelRuleta;
+import logica.usuario.Sesion;
 
 /**
  *
  * @author digregor
  */
-public class VistaMesa extends javax.swing.JFrame {
+public class VentanaMesa extends javax.swing.JFrame {
 
     int apuestaRojo = 0;
-
+    Sesion sesion;
+    
     /**
      * Creates new form NewJFrame
      */
-    public VistaMesa() {
+    public VentanaMesa(Sesion sesion) {
         initComponents();
+        this.sesion=sesion;
     }
 
     /**
@@ -37,7 +41,7 @@ public class VistaMesa extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
-        r = new PanelRuleta();
+        r = new componente.PanelRuleta();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -120,17 +124,6 @@ public class VistaMesa extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout rLayout = new javax.swing.GroupLayout(r);
-        r.setLayout(rLayout);
-        rLayout.setHorizontalGroup(
-            rLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 793, Short.MAX_VALUE)
-        );
-        rLayout.setVerticalGroup(
-            rLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 319, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -175,9 +168,9 @@ public class VistaMesa extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(18, 18, 18)
                 .addComponent(r, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton7)
@@ -198,7 +191,7 @@ public class VistaMesa extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCheckBox2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
@@ -280,6 +273,6 @@ public class VistaMesa extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JPanel r;
+    private componente.PanelRuleta r;
     // End of variables declaration//GEN-END:variables
 }

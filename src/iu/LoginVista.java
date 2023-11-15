@@ -1,21 +1,25 @@
 package iu;
 
+import iu.controladores.LoginVistaControlador;
 import javax.swing.JOptionPane;
 import logica.usuario.Sesion;
+import utilidades.CrupierException;
 
 public abstract class LoginVista extends javax.swing.JDialog implements VistaLogin {
 
-    /**
-     * Creates new form Login
-     */
+    protected LoginVistaControlador controlador;
+
     public LoginVista(java.awt.Frame parent, boolean modal, boolean isCrupier) {
         super(parent, modal);
         initComponents();
-        if (isCrupier) {
-            setTitle("Login Crupier");
-        } else {
-            setTitle("Login Jugador");
-        }
+        this.setLocationRelativeTo(parent);
+        this.controlador = crearControlador();
+
+//        if (isCrupier) {//Esto tiene que ir en el controlador de la vista
+//            setTitle("Login Crupier");
+//        } else {
+//            setTitle("Login Jugador");
+//        }
     }
 
     /**
@@ -136,40 +140,12 @@ public abstract class LoginVista extends javax.swing.JDialog implements VistaLog
     private javax.swing.JPasswordField txt_password;
     // End of variables declaration//GEN-END:variables
 
+
     private void login() {
         String nombre = txt_nombreUsuario.getText();
         String password = String.valueOf(txt_password.getPassword());
-        Sesion sesion = this.hacerLogin(nombre, password);
-        if (sesion != null) {
-            this.mostrarProximaInterfaz(sesion);
-            dispose();
-        } else {
-            JOptionPane.showMessageDialog(null, "Usuario y/o password incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
-        }
+        controlador.login(nombre, password);
     }
-
-    public abstract Sesion hacerLogin(String nombre, String password);
-
-    @Override
-    public abstract void mostrarProximaInterfaz(Sesion sesion);
-
-    @Override
-    public void mostrarTitulo(String titulo) {
-        this.setTitle(titulo);
-    }
-
-    @Override
-    public void mostrarError(String mensaje) {
-        JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
-    }
-
-    @Override
-    public void cerrar() {
-        dispose();
-    }
-
-    @Override
-    public void limpiarDatos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
+    protected abstract LoginVistaControlador crearControlador();
 }

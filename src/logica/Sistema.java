@@ -10,6 +10,8 @@ import javax.swing.ImageIcon;
 //import logica.mesa.ControlJuego;
 import logica.mesa.Mesa;
 import logica.mesa.Ronda;
+import logica.mesa.TipoApuesta;
+import logica.mesa.TipoEfecto;
 import utilidades.CrupierException;
 //import logica.mesa.JuegoException;
 //import logica.mesa.Mano;
@@ -30,13 +32,12 @@ public class Sistema extends Observable {
     private static Sistema instancia = new Sistema();
 
     public static Sistema getInstancia() {
-        return instancia;
+            return instancia;
     }
 
 //    public Mazo agregarMazo() {
 //        return controlJuego.agregarMazo();
 //    }
-
 //    public List<Juego> getJuegos() {
 //        return controlJuego.getJuegos();
 //    }
@@ -45,16 +46,15 @@ public class Sistema extends Observable {
 //        return controlMesa.agregarJuego(jugadores, rondas);
 //      }
 //     
-    public void agregarJuego(Mesa mesa) {
-        controlMesa.agregarJuego(mesa);
-    }
 //
+
     public List<Mesa> listarMesas() {
         return controlMesa.listarMesas();
     }
 //
+
     public void agregarJugadorJuego(Sesion sesion, Mesa juego) throws RuletaException {
-          controlMesa.agregarJugadorJuego(sesion, juego);
+        controlMesa.agregarJugadorJuego(sesion, juego);
     }
 //
 //    public List<UsuarioJugador> obtenerJugadores() {
@@ -113,4 +113,24 @@ public class Sistema extends Observable {
 //    public double obtenerMontoBase() {
 //        return controlJuego.getMontoBase();
 //    }
+    public ArrayList<TipoApuesta> getTipoApuesta() {
+        return controlMesa.getTipoApuesta();
+    }
+
+    public ArrayList<TipoEfecto> getTipoEfecto() {
+        return controlMesa.getTipoEfecto();
+    }
+
+    public void agregarTipoApuesta(TipoApuesta ta) {
+        controlMesa.agregarTipoApuesta(ta);
+    }
+
+    public void agregarTipoEfecto(TipoEfecto te) {
+        controlMesa.agregarTipoEfecto(te);
+    }
+
+    public void agregarMesa(Mesa mesa) {
+        controlMesa.agregarMesa(mesa);
+    }
+
 }

@@ -4,7 +4,7 @@ import java.util.List;
 import logica.usuario.Sesion;
 import logica.usuario.UsuarioJugador;
 
-public interface VistaJugarMesa {
+public interface VistaJugarMesa extends VistaBase{
 
     public void mostrarError(String mensaje);
 
