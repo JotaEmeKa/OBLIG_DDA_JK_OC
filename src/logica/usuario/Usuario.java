@@ -21,7 +21,6 @@ public class Usuario {
     }
     
     
-
     public boolean validarPassword(String password) {
         return this.password.equals(password);
     }
@@ -45,6 +44,8 @@ public class Usuario {
     public void setNombreCompleto(String nombreCompleto) {
         this.nombreCompleto = nombreCompleto;
     }
+    
+    
     
     
     

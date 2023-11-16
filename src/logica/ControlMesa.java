@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import javax.swing.ImageIcon;
 import logica.mesa.Apuesta;
+import logica.mesa.Casillero;
 import logica.mesa.Mesa;
 import logica.mesa.Ronda;
 import logica.mesa.TipoEfecto;
@@ -122,7 +123,7 @@ class ControlMesa {
         return this.tipoApuestas;
     }
 
-    public ArrayList<TipoEfecto> getTipoEfecto() {
+    public ArrayList<TipoEfecto> getTiposEfecto() {
         return this.tipoEfectos;
     }
 
@@ -132,6 +133,62 @@ class ControlMesa {
 
     public void agregarTipoEfecto(TipoEfecto te) {
         this.tipoEfectos.add(te);
+    }
+
+    public ArrayList<Casillero> cargarCasilleros() {
+        ArrayList<Casillero> casilleros = new ArrayList<>();
+
+        casilleros.add(new Casillero(0, false));
+        casilleros.add(new Casillero(1, true));
+        casilleros.add(new Casillero(2, false));
+        casilleros.add(new Casillero(3, true));
+        casilleros.add(new Casillero(4, false));
+        casilleros.add(new Casillero(5, true));
+        casilleros.add(new Casillero(6, false));
+        casilleros.add(new Casillero(7, true));
+        casilleros.add(new Casillero(8, false));
+        casilleros.add(new Casillero(9, true));
+        casilleros.add(new Casillero(10, false));
+
+        casilleros.add(new Casillero(11, false));
+        casilleros.add(new Casillero(12, true));
+        casilleros.add(new Casillero(13, false));
+        casilleros.add(new Casillero(14, true));
+        casilleros.add(new Casillero(15, false));
+        casilleros.add(new Casillero(16, true));
+        casilleros.add(new Casillero(17, false));
+        casilleros.add(new Casillero(18, true));
+        casilleros.add(new Casillero(19, true));
+
+        casilleros.add(new Casillero(20, false));
+        casilleros.add(new Casillero(21, true));
+        casilleros.add(new Casillero(22, false));
+        casilleros.add(new Casillero(23, true));
+        casilleros.add(new Casillero(24, false));
+        casilleros.add(new Casillero(25, true));
+        casilleros.add(new Casillero(26, false));
+        casilleros.add(new Casillero(27, true));
+        casilleros.add(new Casillero(28, false));
+        casilleros.add(new Casillero(29, false));
+        
+        casilleros.add(new Casillero(30, true));
+        casilleros.add(new Casillero(31, false));
+        casilleros.add(new Casillero(32, true));
+        casilleros.add(new Casillero(33, false));
+        casilleros.add(new Casillero(34, true));
+        casilleros.add(new Casillero(35, false));
+        casilleros.add(new Casillero(36, true));
+        casilleros.add(new Casillero(37, false));
+        casilleros.add(new Casillero(38, false));
+        casilleros.add(new Casillero(39, false));
+        
+        casilleros.add(new Casillero(40, false));
+        casilleros.add(new Casillero(41, false));
+        casilleros.add(new Casillero(42, false));
+        casilleros.add(new Casillero(43, false));
+        casilleros.add(new Casillero(44, false));
+
+        return casilleros;
     }
 
 }

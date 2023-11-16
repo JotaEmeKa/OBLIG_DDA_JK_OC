@@ -16,16 +16,19 @@ import utilidades.RuletaException;
  */
 public class Mesa extends Observable {
 
-    private List<UsuarioJugador> jugadores;
-    private List<Ronda> rondas = new ArrayList<Ronda>();
+    private ArrayList<UsuarioJugador> jugadores;
+    private ArrayList<Ronda> rondas = new ArrayList<Ronda>();
+    private ArrayList<Casillero> casilleros = new ArrayList<Casillero>();
+    private ArrayList<TipoApuesta> tiposApuesta = new ArrayList<TipoApuesta>();
     public int mesaId = 0;
     UsuarioCrupier crupier;
-
+    double balance = 0;
     boolean esDisponible;//ver con estados
-    
-    public Mesa(UsuarioCrupier crupier) {
-        this.mesaId ++;
+
+    public Mesa(UsuarioCrupier crupier, Ronda ronda) {
+        this.mesaId++;
         this.crupier = crupier;
+        this.rondas.add(ronda);
     }
 
     public Mesa() {
@@ -41,11 +44,11 @@ public class Mesa extends Observable {
         Sistema.getInstancia().avisar(EventoJuego.INGRESO_JUGADOR);
     }
 
-    public List<Ronda> getRondas() {
+    public ArrayList<Ronda> getRondas() {
         return rondas;
     }
 
-    public List<UsuarioJugador> getJugadores() {
+    public ArrayList<UsuarioJugador> getJugadores() {
         return jugadores;
     }
 
@@ -54,10 +57,47 @@ public class Mesa extends Observable {
         return jugadores.size();
     }
 
-    
+    public void agregarTiposApuesta(ArrayList<TipoApuesta> ta) {
+        for (TipoApuesta tipoApuesta : ta) {//Falta agregar a prepo la apuesta directa, buscándola por nombre capaz
+            this.tiposApuesta.add(tipoApuesta);
+        }
+    }
 
+    public ArrayList<TipoApuesta> getTiposApuesta() {
+        return tiposApuesta;
+    }
 
+    public int getMesaId() {
+        return mesaId;
+    }
 
+    public UsuarioCrupier getCrupier() {
+        return crupier;
+    }
 
+    public boolean isEsDisponible() {
+        return esDisponible;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setCrupier(UsuarioCrupier crupier) {
+        this.crupier = crupier;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    Casillero buscar(int nroSorteado) {
+        for (Casillero c : casilleros) {
+            if (c.getUniversalCellCode() == nroSorteado) {
+                return c;
+            }
+        }
+        return null;
+    }
 
 }

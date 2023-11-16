@@ -117,8 +117,8 @@ public class Sistema extends Observable {
         return controlMesa.getTipoApuesta();
     }
 
-    public ArrayList<TipoEfecto> getTipoEfecto() {
-        return controlMesa.getTipoEfecto();
+    public ArrayList<TipoEfecto> getTiposEfecto() {
+        return controlMesa.getTiposEfecto();
     }
 
     public void agregarTipoApuesta(TipoApuesta ta) {
@@ -131,6 +131,10 @@ public class Sistema extends Observable {
 
     public void agregarMesa(Mesa mesa) {
         controlMesa.agregarMesa(mesa);
+    }
+
+    public void cargarCasilleros() {
+        controlMesa.cargarCasilleros();
     }
 
 }

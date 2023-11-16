@@ -7,6 +7,7 @@ import logica.Sistema;
 import logica.mesa.ApuestaColor;
 import logica.mesa.ApuestaDirecta;
 import logica.mesa.ApuestaDocena;
+import logica.mesa.Casillero;
 import logica.mesa.ModoCompleto;
 import logica.mesa.ModoParcial;
 import logica.mesa.ModoSimulador;
@@ -23,7 +24,7 @@ public class DatosPrueba {
 
         logica.agregarUsuario(new UsuarioCrupier("14255657", "123456", "Carlos Estevez", new Mesa()));
         logica.agregarUsuario(new UsuarioCrupier("24566588", "123321", "Fernando Tegrira", new Mesa()));
-        logica.agregarUsuario(new UsuarioCrupier("12345678", "123", "Fernando Tegrira", new Mesa()));
+        logica.agregarUsuario(new UsuarioCrupier("12345678", "123456", "Fernando Tegrira", new Mesa()));
 
         logica.agregarUsuario(new UsuarioJugador("45784788", "1234", "Juan Pedreira", 1000));
 
@@ -41,6 +42,18 @@ public class DatosPrueba {
         TipoEfecto completo = new ModoCompleto("Modo Completo");
         TipoEfecto parcial = new ModoParcial("Modo Parcial");
         TipoEfecto simulado = new ModoSimulador("Modo Simulador");
+        
+        
+        logica.agregarTipoApuesta(directa);
+        logica.agregarTipoApuesta(color);
+        logica.agregarTipoApuesta(docena);
+        
+        logica.agregarTipoEfecto(completo);
+        logica.agregarTipoEfecto(parcial);
+        logica.agregarTipoEfecto(simulado);
+        
+        logica.cargarCasilleros();
+        
 
 //        logica.agregarCantJugadores(2);
 //        logica.agregarMontoBase(100);

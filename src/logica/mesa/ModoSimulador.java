@@ -5,6 +5,10 @@
  */
 package logica.mesa;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 /**
  *
  * @author ddauser
@@ -17,6 +21,26 @@ public class ModoSimulador extends TipoEfecto {
 
     @Override
     public boolean esValido(String numero) {
-        return numero.trim().length() == 8 && esNumerico(numero); 
+        return numero.trim().length() == 8 && esNumerico(numero);
     }
+
+    @Override
+    public int hacerSorteo(TipoEfecto te, Mesa mesa) {
+        Random random = new Random();
+        Ronda ultimaRonda = mesa.getRondas().get(mesa.getRondas().size() - 1);
+        ArrayList<Apuesta> apuestas = ultimaRonda.getApuestas();
+
+        List<Casillero> numerosAsortear = new ArrayList<>();
+
+        for (Apuesta a : apuestas) {
+            numerosAsortear.add(a.getCasillero());
+        }
+
+        int indiceAleatorio = random.nextInt(apuestas.size());
+
+        Casillero casillero = apuestas.get(indiceAleatorio).getCasillero();
+
+        return casillero.getUniversalCellCode();
+    }
+
 }

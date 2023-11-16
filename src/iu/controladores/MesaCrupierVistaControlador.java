@@ -1,24 +1,31 @@
 package iu.controladores;
 
 import iu.VistaJugarMesa;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import logica.Sistema;
+import logica.mesa.Casillero;
 import logica.mesa.Mesa;
+import logica.mesa.Ronda;
+import logica.mesa.TipoEfecto;
 import logica.usuario.Sesion;
+import logica.usuario.Usuario;
 import utilidades.EventoJuego;
 import utilidades.Observable;
 import utilidades.Observador;
 
-public class JuegoVistaControlador extends VistaBaseControlador<VistaJugarMesa, Mesa> implements Observador {
+public class MesaCrupierVistaControlador extends VistaBaseControlador<VistaJugarMesa, Mesa> implements Observador {
 
     private Sesion sesion;
+    private ArrayList<Usuario> jugadores;
+    private Mesa mesa;
+    private ArrayList<Ronda> rondas;
 
-    public JuegoVistaControlador(VistaJugarMesa vista, Mesa modelo) {
+    public MesaCrupierVistaControlador(VistaJugarMesa vista, Mesa modelo) {
         super(vista, modelo);
         modelo.agregar(this);
-
         //iniciarSesion(modelo.getUsuario());
     }
 
@@ -55,13 +62,21 @@ public class JuegoVistaControlador extends VistaBaseControlador<VistaJugarMesa, 
 //    public void mostrarVistaNuevoGrupo() {
 //        vista.mostrarDialogoNuevoGrupoDeContactos(modelo);
 //    }
+    public void lanzarBola(TipoEfecto te, Mesa mesa) {
+        this.mesa = mesa;
+        this.rondas = mesa.getRondas();
+        if (!rondas.isEmpty()) {
+            Ronda ultimaRonda = rondas.get(rondas.size()-1);
+            Casillero casillero = ultimaRonda.hacerSorteo(te, mesa);
+            vista.mostrarNumeroSorteado(casillero);
+        }
+    }
+
     @Override
     protected void inicializarVista() {
-        var fachada = Sistema.getInstancia();
-//        vista.mostrarTiposDeContacto(fachada.getTiposContacto());
-//        vista.mostrarTiposDeTelefno(fachada.getTiposTelefono());
-//        vista.mostrarResumenDeInformacion(modelo);
-//        vista.mostrarContactos(modelo.getContactos());
+
+        ArrayList<TipoEfecto> tipos = Sistema.getInstancia().getTiposEfecto();
+        vista.mostrarDatosIniciales(tipos);
     }
 
     @Override
@@ -71,4 +86,5 @@ public class JuegoVistaControlador extends VistaBaseControlador<VistaJugarMesa, 
             //buscarContacto("");
         }
     }
+
 }

@@ -1,6 +1,7 @@
 package iu;
 
 import java.util.ArrayList;
+import logica.mesa.Mesa;
 import logica.mesa.TipoApuesta;
 import logica.usuario.Sesion;
 import logica.usuario.Usuario;
@@ -11,13 +12,13 @@ public interface VistaLobby extends VistaBase{
 //
 //    public void mostrarError(String mensaje);
 //
-//    public void mostrarProximaInterfaz(Sesion sesion);
+    public void mostrarProximaInterfaz(Mesa mesa);
 //
 //    public void limpiarDatos();
 //
 //    public void cerrar();
 
-    public void ejecutarCasoDeUsoInicial(Usuario usuario);
+    public void ejecutarCasoDeUsoInicial(Sesion sesion);
 
     public void cerrarVentana();
 

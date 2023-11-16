@@ -1,31 +1,28 @@
 package iu.controladores;
 
-import iu.VistaJugarMesa;
 import iu.VistaLobby;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import logica.Sistema;
 import logica.mesa.Mesa;
+import logica.mesa.Ronda;
 import logica.mesa.TipoApuesta;
 import logica.usuario.Sesion;
+import logica.usuario.UsuarioCrupier;
 import utilidades.EventoJuego;
 import utilidades.Observable;
 import utilidades.Observador;
-import utilidades.RuletaException;
 
 public class LobbyVistaControlador extends VistaBaseControlador<VistaLobby, Mesa> implements Observador {
 
     private Sesion sesion;
     private ArrayList<TipoApuesta> tipoApuestas;
 
-    public LobbyVistaControlador(VistaLobby vista) {
+    public LobbyVistaControlador(VistaLobby vista, Sesion sesion) {
         super(vista, new Mesa());
         modelo.agregar(this);
+        this.sesion = sesion;
         //mostrarTiposDeApuesta();
-        
+
         //iniciarSesion(modelo.getUsuario());
     }
 
@@ -71,9 +68,6 @@ public class LobbyVistaControlador extends VistaBaseControlador<VistaLobby, Mesa
     @Override
     protected void inicializarVista() {
         Sistema logica = Sistema.getInstancia();
-//        vista.mostrarTiposDeContacto(fachada.getTiposContacto());
-//        vista.mostrarTiposDeTelefno(fachada.getTiposTelefono());
-//        vista.mostrarResumenDeInformacion(modelo);
         vista.mostrarTiposApuesta(logica.getTipoApuesta());
     }
 
@@ -84,14 +78,13 @@ public class LobbyVistaControlador extends VistaBaseControlador<VistaLobby, Mesa
             //buscarContacto("");
         }
     }
-    
-        public void crearMesa(List<TipoApuesta> ta) {
-        Mesa mesa = new Mesa();
-//        mesa.forEach(c -> {
-//                ta.agregar(c);
-//        });
-            Sistema.getInstancia().agregarMesa(mesa);
-            inicializarVista();
+
+    public void crearMesa(ArrayList<TipoApuesta> ta) {
+        Mesa mesa = new Mesa((UsuarioCrupier) sesion.getUsuario(), new Ronda());
+        mesa.agregarTiposApuesta(ta);
+        Sistema.getInstancia().agregarMesa(mesa);
+        vista.mostrarProximaInterfaz(mesa);
+        vista.cerrarVentana();
     }
-    
+
 }

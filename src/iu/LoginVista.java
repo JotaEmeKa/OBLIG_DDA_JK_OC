@@ -5,12 +5,12 @@ import javax.swing.JOptionPane;
 import logica.usuario.Sesion;
 import utilidades.CrupierException;
 
-public abstract class LoginVista extends javax.swing.JDialog implements VistaLogin {
+    public abstract class LoginVista extends javax.swing.JDialog implements VistaLogin {
 
     protected LoginVistaControlador controlador;
 
     public LoginVista(java.awt.Frame parent, boolean modal, boolean isCrupier) {
-        super(parent, modal);
+       // super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(parent);
         this.controlador = crearControlador();

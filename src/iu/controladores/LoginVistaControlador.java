@@ -1,9 +1,7 @@
 package iu.controladores;
 
-import controlador.VistaBaseControlador;
 import iu.VistaLogin;
 import iu.LoginVista;
-import javax.security.auth.login.LoginException;
 import logica.Sistema;
 import logica.usuario.Sesion;
 import logica.usuario.Usuario;

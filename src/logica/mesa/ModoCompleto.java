@@ -5,10 +5,8 @@
  */
 package logica.mesa;
 
-/**
- *
- * @author ddauser
- */
+import java.util.Random;
+
 public class ModoCompleto extends TipoEfecto {
 
     public ModoCompleto(String nombre) {
@@ -18,5 +16,12 @@ public class ModoCompleto extends TipoEfecto {
     @Override
     public boolean esValido(String numero) {
         return numero.trim().length() == 8 && esNumerico(numero); 
+    }
+
+    @Override
+    public int hacerSorteo(TipoEfecto te, Mesa mesa) {
+        Random random = new Random();   
+        int numeroSorteado = random.nextInt(37);
+        return numeroSorteado;
     }
 }

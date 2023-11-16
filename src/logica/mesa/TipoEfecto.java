@@ -10,7 +10,7 @@ package logica.mesa;
  * @author ddauser
  */
 public abstract class TipoEfecto {
-    
+
     private String nombre;
 
     public TipoEfecto(String nombre) {
@@ -25,7 +25,7 @@ public abstract class TipoEfecto {
     public String toString() {
         return getNombre();
     }
-    
+
     protected boolean esNumerico(String numero) {
         try {
             Long.parseLong(numero);
@@ -33,7 +33,10 @@ public abstract class TipoEfecto {
         } catch (NumberFormatException e) {
             return false;
         }
-    } 
-   
+    }
+
     public abstract boolean esValido(String numero);
+
+    public abstract int hacerSorteo(TipoEfecto te, Mesa mesa);
+            
 }

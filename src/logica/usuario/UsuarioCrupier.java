@@ -13,6 +13,12 @@ public class UsuarioCrupier extends Usuario{
         super(cedula, password,nombreCompleto);
         this.mesa = mesa;
     }
+
+    public Mesa getMesa() {
+        return mesa;
+    }
+    
+    
     
     
 }

@@ -26,7 +26,8 @@ public class LoginCrupier extends LoginVista {
 //        lobby.setVisible(true);
 //    }
     public void ejecutarCasoDeUsoInicial(Sesion sesion) {
-        new LobbyVista((java.awt.Frame) this.getParent(), false, sesion).setVisible(true);
+       new LobbyVista((java.awt.Frame) this.getParent(), false, sesion).setVisible(true);
+       
     }
 
     @Override
@@ -36,7 +37,7 @@ public class LoginCrupier extends LoginVista {
 
     @Override
     public void cerrarVentana() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        dispose();
     }
 
     @Override

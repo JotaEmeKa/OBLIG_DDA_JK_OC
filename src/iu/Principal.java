@@ -161,6 +161,7 @@ public class Principal extends javax.swing.JFrame {
         LoginVista login = new LoginCrupier(this, false, true);
         login.setVisible(true);
         login.setLocationRelativeTo(this);
+        this.dispose();
     }
 
     private void loginJugador() {

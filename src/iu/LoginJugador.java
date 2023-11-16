@@ -5,6 +5,7 @@ import java.awt.Frame;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import logica.Sistema;
+import logica.mesa.Mesa;
 import logica.usuario.Sesion;
 import logica.usuario.Usuario;
 import logica.usuario.UsuarioCrupier;
@@ -27,7 +28,7 @@ public class LoginJugador extends LoginVista {
 
     public void mostrarProximaInterfaz(Sesion sesion) {
         System.out.println("Entraste");
-        VentanaMesa vmesa = new VentanaMesa(sesion);
+        MesaCrupierVista vmesa = new MesaCrupierVista(sesion, new Mesa());
         vmesa.setVisible(true);
     }
 
@@ -38,7 +39,7 @@ public class LoginJugador extends LoginVista {
 
     @Override
     public void cerrarVentana() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        dispose();
     }
 
     @Override

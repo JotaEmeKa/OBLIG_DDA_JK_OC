@@ -1,6 +1,10 @@
 package iu;
 
+import java.util.ArrayList;
 import java.util.List;
+import logica.mesa.Casillero;
+import logica.mesa.Mesa;
+import logica.mesa.TipoEfecto;
 import logica.usuario.Sesion;
 import logica.usuario.UsuarioJugador;
 
@@ -16,18 +20,20 @@ public interface VistaJugarMesa extends VistaBase{
 
     public void mostrarMensaje(String mensaje);
 
-    public void repartirCartas();
+    public void lanzarBola();
 
     public void cerrar();
 
     public void mostrarMontos(List<UsuarioJugador> jugadores);
 
-    public void mostrarLogin();
+//    public void mostrarLogin();
+//
+//    public void mostrarMensajeConfirmacion(String mensaje, double apuesta);
+//
+//    public void mostrarJugadoresList(List<UsuarioJugador> jugadores);
 
-    public void mostrarMensajeConfirmacion(String mensaje, double apuesta);
+    public void mostrarNumeroSorteado(Casillero casillero);
 
-    public void mostrarJugadoresList(List<UsuarioJugador> jugadores);
-
-    public void mostrarMano(String mensaje);
+    public void mostrarDatosIniciales(ArrayList<TipoEfecto> tipos);
 
 }
